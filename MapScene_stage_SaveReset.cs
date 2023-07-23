@@ -5,8 +5,11 @@ using UnityEditor.SceneManagement;
 
 public class MapIntroduce : MonoBehaviour
 {
+
+    public GameObject goToMain//create button and connect the button and GotoMainScene()
     private int currentStage;
     private int openedStage;
+    public int clearedStage;
     public GameObject IntroMap;
     public GameObject GoliathName0;
     public GameObject GoliathName1;
@@ -46,7 +49,11 @@ public class MapIntroduce : MonoBehaviour
         loading.SetActive(true);
         Invoke("LoadBattle", 1.0f);
     }
-
+    void GotoMainScene()
+    {
+        SceneManager.LoadScene("Main");
+    }
+    //Create button and connect ResetStageData()
     public void ResetStageData()
     {
         if (PlayerPrefs.HasKey("OpenedStage"))
@@ -58,6 +65,7 @@ public class MapIntroduce : MonoBehaviour
 
     private void OnGoToBattleButtonClicked()
     {
+        //check Saved data_ if story has been opened and the stage has been cleared 
         if (PlayerPrefs.HasKey("OpenedStage"))
         {
             openedStage = PlayerPrefs.GetInt("OpenedStage");
@@ -66,6 +74,17 @@ public class MapIntroduce : MonoBehaviour
         {
             openedStage = -1;
         }
+        if (PlayerPrefs.HasKey("ClearedStage"))
+        {
+            clearedStage = PlayerPrefs.GetInt("ClearedStage");
+        }
+        else
+        {
+            clearedStage = -1;
+        }
+
+
+        //Move to proper Scene
         if (currentStage == 0)
         {
             if (openedStage == -1)
@@ -80,7 +99,7 @@ public class MapIntroduce : MonoBehaviour
         }
         else if (currentStage == 1)
         {
-            if (openedStage == 0)
+            if (clearedStage == 0)
             {
                 Debug.Log("Move to Story Scene of 1");
                 openedStage = 1;
@@ -93,7 +112,7 @@ public class MapIntroduce : MonoBehaviour
         }
         else if (currentStage == 2)
         {
-            if (openedStage == 1)
+            if (clearedStage == 1)
             {
                 Debug.Log("Move to Story Scene of 2");
                 openedStage = 2;
@@ -104,9 +123,12 @@ public class MapIntroduce : MonoBehaviour
                 GotoBattleScene();
             }
         }
+
+
         PlayerPrefs.SetInt("OpenedStage", openedStage);
         PlayerPrefs.Save();
         Debug.Log("Saved : max opened stage is " + openedStage);
+        Debug.Log("Saved : max cleared stage is " + clearedStage);
     }
 
     private void OnStageButtonClicked(int stage)

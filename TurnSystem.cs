@@ -691,13 +691,25 @@ public class TurnSystem : MonoBehaviour
 
 
     //아래 내용 전부 추가
+    /*public void WhenBattleIsOver()
+    {
+        gameObject.SetActive(true)
+    }*/
 
-    
 
+    //Create two button and show button of Restart and Map when Battle is over.
     public void GameWin()
     {
         //게임 승리 UI 활성화 일단 텍스트만 뜨게함
-
+        if ( PlayerPrefs.HasKey("ClearedStage"))
+        {
+            if (MapIntroduce.currentstage > PlayerPrefs.GetInt("ClearedStage"))
+            {
+                PlayerPrefs.SetInt("ClearedStage") = MapIntroduce.currentstage;
+                PlayerPrefs.Save();
+            }
+            
+        }      
         wintxt.SetActive(true);
         board.SetActive(false);
     }
@@ -721,6 +733,7 @@ public class TurnSystem : MonoBehaviour
         isGameOver = false;
         KingAlive = true;
         Tile.IsQueenAbility = true;
+        //GotoBattleScene()
     }
 
     public void CheckKing()//킹이 살아있는지를 확인하는 코드 없으면 GameOver 호출
@@ -751,7 +764,6 @@ public class TurnSystem : MonoBehaviour
         {
             isGameOver = true;
             GameWin();
-            Invoke("GoMapScene", 3f);
         }
     }
 
