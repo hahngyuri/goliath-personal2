@@ -701,15 +701,12 @@ public class TurnSystem : MonoBehaviour
     public void GameWin()
     {
         //게임 승리 UI 활성화 일단 텍스트만 뜨게함
-        if ( PlayerPrefs.HasKey("ClearedStage"))
+        if (MapIntroduce.currentStage > PlayerPrefs.GetInt("ClearedStage"))
         {
-            if (MapIntroduce.currentstage > PlayerPrefs.GetInt("ClearedStage"))
-            {
-                PlayerPrefs.SetInt("ClearedStage") = MapIntroduce.currentstage;
-                PlayerPrefs.Save();
-            }
-            
-        }      
+            PlayerPrefs.SetInt("ClearedStage") = MapIntroduce.currentStage;
+            MapIntroduce.clearedStage = MapIntroduce.currentStage;
+            PlayerPrefs.Save();
+        }           
         wintxt.SetActive(true);
         board.SetActive(false);
     }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class RookScript : Piece
 {
-    public static int RookUpgrade = 0;
+    public static int RookUpgrade;
     private void OnMouseDown()
     {
         if (TurnSystem.moveTurn > 0 && !NowMove)

@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class BishopScript : Piece
 {
-    public static int BishopUpgrade = 0;
+    public static int BishopUpgrade;
     private void OnMouseDown()
     {
         if (TurnSystem.moveTurn > 0 && !NowMove)

@@ -28,6 +28,7 @@ public class PieceShopBuyScript : MonoBehaviour
                     SelectedButton.transform.GetChild(0).GetComponent<Text>().text = $"X{SelectedButton.GetComponent<ArrButtonScript>().NowPieceNum}";
                     MyPiece.text = $"보유 수 : {SelectedButton.GetComponent<ArrButtonScript>().NowPieceNum}";
                     PlayerPrefs.SetInt("PawnNumber") = SelectedButton.GetComponent<ArrButtonScript>().NowPieceNum;
+                    PlayerPrefs.SetInt("Money") = PieceShopMoney.Money
                     PlayerPrefs.Save();
                 }
                 
@@ -44,6 +45,7 @@ public class PieceShopBuyScript : MonoBehaviour
                     SelectedButton.transform.GetChild(0).GetComponent<Text>().text = $"X{SelectedButton.GetComponent<ArrButtonScript>().NowPieceNum}";
                     MyPiece.text = $"보유 수 : {SelectedButton.GetComponent<ArrButtonScript>().NowPieceNum}";
                     PlayerPrefs.SetInt("BishopNumber") = SelectedButton.GetComponent<ArrButtonScript>().NowPieceNum;
+                    PlayerPrefs.SetInt("Money") = PieceShopMoney.Money
                     PlayerPrefs.Save();
                 }
                 break;
@@ -59,6 +61,7 @@ public class PieceShopBuyScript : MonoBehaviour
                     SelectedButton.transform.GetChild(0).GetComponent<Text>().text = $"X{SelectedButton.GetComponent<ArrButtonScript>().NowPieceNum}";
                     MyPiece.text = $"보유 수 : {SelectedButton.GetComponent<ArrButtonScript>().NowPieceNum}";
                     PlayerPrefs.SetInt("KnightNumber") = SelectedButton.GetComponent<ArrButtonScript>().NowPieceNum;
+                    PlayerPrefs.SetInt("Money") = PieceShopMoney.Money
                     PlayerPrefs.Save();
                 }
                 break;
@@ -74,6 +77,7 @@ public class PieceShopBuyScript : MonoBehaviour
                     SelectedButton.transform.GetChild(0).GetComponent<Text>().text = $"X{SelectedButton.GetComponent<ArrButtonScript>().NowPieceNum}";
                     MyPiece.text = $"보유 수 : {SelectedButton.GetComponent<ArrButtonScript>().NowPieceNum}";
                     PlayerPrefs.SetInt("RookNumber") = SelectedButton.GetComponent<ArrButtonScript>().NowPieceNum;
+                    PlayerPrefs.SetInt("Money") = PieceShopMoney.Money
                     PlayerPrefs.Save();
                 }
                 break;

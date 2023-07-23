@@ -7,12 +7,16 @@ public class NewRook : ArrButtonScript
 {
     private void Awake()
     {
-        PieceDamage = 45;
+        //PieceDamage = 45;
         PieceCost = 3;
         colorblock = ArrButton.colors;
         BuyPieceNum = 2;
         NowPieceNum = 2;
         ButtonName = "rook";
+        if (PlayerPrefs.HasKey("RookNumber"))
+        {
+            BuyPieceNum = NowPieceNum = PlayerPrefs.GetInt("RookNumber");
+        }
     }
 
 

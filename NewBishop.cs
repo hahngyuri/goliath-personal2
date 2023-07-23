@@ -7,12 +7,16 @@ public class NewBishop : ArrButtonScript
 {
     private void Awake()
     {
-        PieceDamage = 30;
+        //PieceDamage = 30;
         PieceCost = 2;
         colorblock = ArrButton.colors;
         BuyPieceNum = 1;
         NowPieceNum = 1;
         ButtonName = "bishop";
+        if (PlayerPrefs.HasKey("BishopNumber"))
+        {
+            BuyPieceNum = NowPieceNum = PlayerPrefs.GetInt("BishopNumber");
+        }
     }
 
 

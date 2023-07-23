@@ -5,7 +5,7 @@ using UnityEngine;
 public class PawnScript : Piece
 {
     public int movetime = 0;
-    public static int PawnUpgrade = 0;
+    public static int PawnUpgrade;
     public bool PawnArmor = false;
     public static string direction = "forward";
     private void Awake()

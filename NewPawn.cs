@@ -8,14 +8,16 @@ public class NewPawn : ArrButtonScript
 {
     private void Awake()
     {
-        PieceDamage = 20;
+        //PieceDamage = 20;
         PieceCost = 1;
         colorblock = ArrButton.colors;
         BuyPieceNum = 6;
         NowPieceNum = 6;
         ButtonName = "pawn";
-        
-    }
+        if (PlayerPrefs.HasKey("PawnNumber"))
+        {
+            BuyPieceNum = NowPieceNum = PlayerPrefs.GetInt("PawnNumber");
+        }
 
 
     public void PieceSelected()

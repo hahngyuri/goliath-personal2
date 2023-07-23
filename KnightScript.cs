@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class KnightScript : Piece
 {
-    public static int KnightUpgrade = 0;
+    public static int KnightUpgrade;
     private void OnMouseDown()
     {
         if (TurnSystem.moveTurn > 0 && !NowMove)
